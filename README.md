@@ -1,8 +1,3 @@
-# hybelkaninen
-
+# Hybelkaninen
 Gjør livet på hybelen enklere med gamification av oppgaver.
-
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+Hybrid-app utviklet i Dart med Flutter-rammeverk. Bruker Firebase som back-end.
