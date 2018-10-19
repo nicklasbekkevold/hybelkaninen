@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "913034996850",
+    "firebase_url": "https://hybel-ea5b1.firebaseio.com",
+    "project_id": "hybel-ea5b1",
+    "storage_bucket": "hybel-ea5b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913034996850:android:e84c142f9fff1749",
+        "android_client_info": {
+          "package_name": "no.nicklasbekkevold.hybelkaninen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913034996850-mh3uul7ttabd4a04nb4h9f0t797b2ii7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD57h0c0O2B79zWH1u_ijPsRKwlo176LXM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
