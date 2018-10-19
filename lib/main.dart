@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.lightGreenAccent,
         brightness: Brightness.dark
       ),
-      home: const MyHomePage(title: 'My app <3'),
+      home: const MyHomePage(title: 'Klæbuveien 34'),
     );
   }
 }
