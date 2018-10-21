@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../widgets/person_tile.dart';
 import '../../widgets/logg_card.dart';
 
@@ -10,48 +11,30 @@ class MainTab extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 0.0),
       child: Column(
         children: <Widget>[
+          Container(
+            child: Text("Top scores: ", style: TextStyle(fontStyle: FontStyle.italic,),),
+            padding: EdgeInsets.only(top: 10.0, left: 16.0),
+          ),
           Expanded(
-            child: ListView(
-                children: <Widget>[
-                  Container(
-                    child: new Text("Top scores:", style: new TextStyle(fontStyle: FontStyle.italic,),),
-                    padding: EdgeInsets.only(top: 10.0, left: 16.0),
-                  ),
-                  Divider(),
-                  PersonTile(context, "Halvard", 5),
-                  Divider(),
-                  PersonTile(context, "Nicklas", 10),
-                  Divider(),  
-                  PersonTile(context, "Halvard", 5),
-                  Divider(),
-                  PersonTile(context, "Nicklas", 10),
-                  Divider(),
-                  PersonTile(context, "Halvard", 5),
-                  Divider(),
-                  PersonTile(context, "Nicklas", 10),
-                  Divider(),
-                  PersonTile(context, "Halvard", 5),
-                  Divider(),
-                  PersonTile(context, "Nicklas", 10),
-                  Divider(),
-                  Container(
-                    child: new Text("Recent activity:", style: new TextStyle(fontStyle: FontStyle.italic,),),
-                    padding: EdgeInsets.only(bottom: 10.0, left: 16.0),
-                  ),
-                  LoggCard(5, "supplied the bar", 8, "HS"),
-                  LoggCard(10, "did the dishes", 20, "NB"),
-                  LoggCard(5, "supplied the bar", 8, "HS"),
-                  LoggCard(10, "did the dishes", 20, "NB"),
-                  LoggCard(5, "supplied the bar", 8, "HS"),
-                  LoggCard(10, "did the dishes", 20, "NB"),
-                  LoggCard(5, "supplied the bar", 8, "HS"),
-                  LoggCard(10, "did the dishes", 20, "NB"),
-                ],
+            child: StreamBuilder(
+              stream: Firestore.instance.collection('users').snapshots(),
+              builder: (context, snapshot) {
+                if(!snapshot.hasData) return const Text('Loading ...');
+                return ListView.builder(
+                  itemExtent: 80.0,
+                  itemCount: snapshot.data.documents.length,
+                  itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
+                );
+              }
             ),
           ),
         ],
       ),
     ));
+  }
+
+  Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
+    return PersonTile(context, document['name'], document['points']);
   }
 
 }
@@ -64,7 +47,7 @@ return StreamBuilder(
         return ListView.builder(
           itemExtent: 80.0,
           itemCount: snapshot.data.documents.length,
-          itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documnets[index]),
+          itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
         );
       }
 );
