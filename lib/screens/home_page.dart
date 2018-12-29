@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
   HomePage(this.initialIndex);
 
   @override
-  _HomePageState createState() => new _HomePageState(initialIndex);
+  _HomePageState createState() => _HomePageState(initialIndex);
 
 }
 
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(length: tabs.length, vsync: this, initialIndex: initialIndex);
+    _tabController = TabController(length: tabs.length, vsync: this, initialIndex: initialIndex);
     _tabController.addListener(_getFab);
     fabIndex=initialIndex;
   } 
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     null, //HOME
     FloatingActionButton( //TODO
       backgroundColor: Colors.red,
-      child: Icon(Icons.add), 
+      child: Icon(Icons.add),
       onPressed: () {Navigator.of(context).pushNamed("AddTask"); },
     ),
     null, //LOGG
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
     appBar: AppBar(
       bottom: TabBar(
         indicatorColor: Colors.redAccent,
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         LoggTab(),
       ],
     ),
-    drawer: new MyDrawer(),
+    drawer: MyDrawer(),
     floatingActionButton: _fab(fabIndex, context),
     );
   }

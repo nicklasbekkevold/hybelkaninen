@@ -11,13 +11,13 @@ class Hybelkaninen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'KLÆBU',
-      theme: new ThemeData(
+      theme: ThemeData(
         brightness: Brightness.light
       ),
       home: HomePage(0),
       routes: <String, WidgetBuilder> {
-        "HomePageTodo": (BuildContext context) => new HomePage(1),
-        "AddTask": (BuildContext context) => new AddTask(),
+        "HomePageTodo": (BuildContext context) => HomePage(1),
+        "AddTask": (BuildContext context) => AddTask(),
       }
     );
   }
