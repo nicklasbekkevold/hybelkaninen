@@ -1,15 +1,50 @@
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../widgets/task_tile.dart';
 
-class TodoTab extends StatefulWidget {
+class Tasks extends StatelessWidget {
 
   @override
-  _TodoTabState createState() => new _TodoTabState();
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 20.0),
+      height: 180.0,
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: StreamBuilder(
+              stream: Firestore.instance.collection('tasks').snapshots(),
+              builder: (context, snapshot) {
+                if(!snapshot.hasData) { 
+                  return CircularProgressIndicator();
+                }
+                return ListView.builder(
+                  itemExtent: 80.0,
+                  itemCount: snapshot.data.documents.length,
+                  itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
+                );
+              }
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
+    return TaskTile(context, document['points'], document['title']);
+  }
+
+}
+/*
+class Tasks extends StatefulWidget {
+
+  @override
+  _TasksState createState() => new _TasksState();
 
 }
 
-class _TodoTabState extends State<TodoTab> with TickerProviderStateMixin {
+class _TasksState extends State<Tasks> with TickerProviderStateMixin {
 
   final _items = ["Vaske rommet", "Gå ut med søpla", "Fikse ovnen", "Vaske gangen", "Kjøpe inn doruller", "Lage middag", "Jazz", "Bazz"];
 
@@ -61,4 +96,4 @@ class _TodoTabState extends State<TodoTab> with TickerProviderStateMixin {
     }
 
 }
-
+*/

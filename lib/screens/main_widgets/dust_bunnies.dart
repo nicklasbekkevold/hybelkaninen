@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../widgets/person_tile.dart';
-import '../../widgets/logg_card.dart';
 
-class MainTab extends StatelessWidget {
+class Dust_Bunnies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 0.0),
+      padding: EdgeInsets.symmetric(vertical: 20.0),
+      height: 180.0,
       child: Column(
         children: <Widget>[
           Expanded(
@@ -20,7 +20,7 @@ class MainTab extends StatelessWidget {
                 }
                 return ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemExtent: 120.0,
+                  itemExtent: 100.0,
                   itemCount: snapshot.data.documents.length,
                   itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
                 );

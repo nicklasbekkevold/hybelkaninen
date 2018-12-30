@@ -13,7 +13,16 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: MainTab(),
+      body: Center(
+        child: Container(
+          child: ListView(
+            children: <Widget>[
+                Dust_Bunnies(),
+                Tasks(),
+            ]
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton( 
         child: Icon(Icons.add),
         onPressed: () {Navigator.of(context).pushNamed("AddTask"); },

@@ -5,7 +5,7 @@ class TaskTile extends StatelessWidget {
   final int _points;
   final String _task;
 
-  TaskTile(this._points, this._task);
+  TaskTile(context, this._points, this._task);
 
   @override
   Widget build(BuildContext context) {
