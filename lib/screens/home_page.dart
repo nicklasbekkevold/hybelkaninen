@@ -48,7 +48,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     final List<FloatingActionButton> fabs=[
     null, //HOME
     FloatingActionButton( //TODO
-      backgroundColor: Colors.red,
       child: Icon(Icons.add),
       onPressed: () {Navigator.of(context).pushNamed("AddTask"); },
     ),
@@ -70,13 +69,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Scaffold(
     appBar: AppBar(
       bottom: TabBar(
-        indicatorColor: Colors.redAccent,
+        indicatorColor: Theme.of(context).accentColor,
         controller: _tabController,
         tabs: tabs,
       ),
-      title: Text('KLÆBU'),
+      title: Text('KLÆBU', style: Theme.of(context).textTheme.title,),
       centerTitle: true,
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Theme.of(context).primaryColor,
     ),
     body: TabBarView(
       controller: _tabController,
@@ -86,7 +85,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         LoggTab(),
       ],
     ),
-    drawer: MyDrawer(),
+    // drawer: MyDrawer(),
     floatingActionButton: _fab(fabIndex, context),
     );
   }

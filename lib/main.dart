@@ -10,9 +10,18 @@ class Hybelkaninen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'KLÆBU',
+      title: 'Hybelkaninen',
+      color: Colors.purple,
       theme: ThemeData(
-        brightness: Brightness.light
+        brightness: Brightness.light,
+        primaryColor: Colors.amber,
+        accentColor: Colors.amberAccent,
+        
+        textTheme: TextTheme(
+          title: TextStyle(fontSize: 24.0, fontStyle: FontStyle.normal),
+          headline: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+          body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+        ),
       ),
       home: HomePage(0),
       routes: <String, WidgetBuilder> {

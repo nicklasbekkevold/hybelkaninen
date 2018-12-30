@@ -19,7 +19,9 @@ class MainTab extends StatelessWidget {
             child: StreamBuilder(
               stream: Firestore.instance.collection('users').snapshots(),
               builder: (context, snapshot) {
-                if(!snapshot.hasData) return const Text('Loading ...');
+                if(!snapshot.hasData) { 
+                  return CircularProgressIndicator();
+                }
                 return ListView.builder(
                   itemExtent: 80.0,
                   itemCount: snapshot.data.documents.length,

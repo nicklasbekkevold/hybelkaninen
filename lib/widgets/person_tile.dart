@@ -16,9 +16,10 @@ class PersonTile extends StatelessWidget {
             width: 60.0,
             height: 50.0,
             padding: EdgeInsets.all(2.0),
-            decoration: BoxDecoration(border: Border.all(width: 4.0, color: Colors.redAccent, ), ), 
+            decoration: BoxDecoration(border: Border.all(width: 4.0, color: Theme.of(context).accentColor, ), ), 
             child: Text(_points.toString(), style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.black), ),
-          )
+          ),
+          
     );
   }
 
