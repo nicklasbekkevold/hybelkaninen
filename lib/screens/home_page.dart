@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './main_tabs/main_tab.dart';
-import './main_tabs/todo_tab.dart';
-import './main_tabs/logg_tab.dart';
-import '../widgets/my_drawer.dart';
+import './main_widgets/dust_bunnies.dart';
+import './main_widgets/tasks.dart';
 
 class HomePage extends StatelessWidget {
 

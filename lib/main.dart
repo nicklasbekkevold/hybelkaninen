@@ -11,7 +11,7 @@ class Hybelkaninen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Hybelkaninen',
-      color: Colors.purple,
+      color: Colors.grey,
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.amber,

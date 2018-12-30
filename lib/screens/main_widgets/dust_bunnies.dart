@@ -7,14 +7,10 @@ class MainTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return(Container(
+    return Container(
       padding: EdgeInsets.symmetric(vertical: 0.0),
       child: Column(
         children: <Widget>[
-          Container(
-            child: Text("Top scores: ", style: TextStyle(fontStyle: FontStyle.italic,),),
-            padding: EdgeInsets.only(top: 10.0, left: 16.0),
-          ),
           Expanded(
             child: StreamBuilder(
               stream: Firestore.instance.collection('users').snapshots(),
@@ -23,7 +19,8 @@ class MainTab extends StatelessWidget {
                   return CircularProgressIndicator();
                 }
                 return ListView.builder(
-                  itemExtent: 80.0,
+                  scrollDirection: Axis.horizontal,
+                  itemExtent: 120.0,
                   itemCount: snapshot.data.documents.length,
                   itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
                 );
@@ -32,7 +29,7 @@ class MainTab extends StatelessWidget {
           ),
         ],
       ),
-    ));
+    );
   }
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
