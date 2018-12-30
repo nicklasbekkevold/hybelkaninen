@@ -9,24 +9,18 @@ class Tasks extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20.0),
       height: 180.0,
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            child: StreamBuilder(
-              stream: Firestore.instance.collection('tasks').snapshots(),
-              builder: (context, snapshot) {
-                if(!snapshot.hasData) { 
-                  return CircularProgressIndicator();
-                }
-                return ListView.builder(
-                  itemExtent: 80.0,
-                  itemCount: snapshot.data.documents.length,
-                  itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
-                );
-              }
-            ),
-          ),
-        ],
+      child: StreamBuilder(
+        stream: Firestore.instance.collection('tasks').snapshots(),
+        builder: (context, snapshot) {
+          if(!snapshot.hasData) { 
+            return CircularProgressIndicator();
+          }
+          return ListView.builder(
+            itemExtent: 80.0,
+            itemCount: snapshot.data.documents.length,
+            itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
+          );
+        }
       ),
     );
   }

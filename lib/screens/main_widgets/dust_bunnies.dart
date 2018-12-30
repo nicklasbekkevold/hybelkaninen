@@ -2,32 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../widgets/person_tile.dart';
 
-class Dust_Bunnies extends StatelessWidget {
+class DustBunnies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20.0),
       height: 180.0,
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            child: StreamBuilder(
-              stream: Firestore.instance.collection('users').snapshots(),
-              builder: (context, snapshot) {
-                if(!snapshot.hasData) { 
-                  return CircularProgressIndicator();
-                }
-                return ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemExtent: 100.0,
-                  itemCount: snapshot.data.documents.length,
-                  itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
-                );
-              }
-            ),
-          ),
-        ],
+      child: StreamBuilder(
+        stream: Firestore.instance.collection('users').snapshots(),
+        builder: (context, snapshot) {
+          if(!snapshot.hasData) { 
+            return CircularProgressIndicator();
+          }
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemExtent: 100.0,
+            itemCount: snapshot.data.documents.length,
+            itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
+          );
+        }
       ),
     );
   }

@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
         child: Container(
           child: ListView(
             children: <Widget>[
-                Dust_Bunnies(),
+                DustBunnies(),
                 Tasks(),
             ]
           ),
