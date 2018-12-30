@@ -23,9 +23,9 @@ class Hybelkaninen extends StatelessWidget {
           body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
         ),
       ),
-      home: HomePage(0),
+      home: HomePage(),
       routes: <String, WidgetBuilder> {
-        "HomePageTodo": (BuildContext context) => HomePage(1),
+        "HomePageTodo": (BuildContext context) => HomePage(),
         "AddTask": (BuildContext context) => AddTask(),
       }
     );

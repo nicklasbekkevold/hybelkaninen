@@ -5,6 +5,27 @@ import './main_tabs/todo_tab.dart';
 import './main_tabs/logg_tab.dart';
 import '../widgets/my_drawer.dart';
 
+class HomePage extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('KLÆBU', style: Theme.of(context).textTheme.title,),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).primaryColor,
+      ),
+      body: MainTab(),
+      floatingActionButton: FloatingActionButton( 
+        child: Icon(Icons.add),
+        onPressed: () {Navigator.of(context).pushNamed("AddTask"); },
+      ),
+    );
+  }
+
+}
+
+/*
 class HomePage extends StatefulWidget {
 
   final int initialIndex;
@@ -91,3 +112,4 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
 }
+*/
