@@ -10,15 +10,15 @@ class TaskTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-          leading: new Container(
+          leading: Container(
             alignment: Alignment.center,
             width: 60.0,
             height: 50.0,
             padding: EdgeInsets.all(2.0),
-            child: new Text("+${_points}p", style: new TextStyle(fontSize: 18.0, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, color: Colors.black), ),
+            child: Text("+${_points}p", style: TextStyle(fontSize: 18.0, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, color: Colors.black), ),
           ),
           title: Text("$_task",),
-          subtitle: new Text("weekly activity"),
+          subtitle: Text("weekly activity"),
           //trailing: new CircleAvatar(backgroundColor: Colors.redAccent,  child: new Text("$_user"), maxRadius: 20.0,),
     );
   }

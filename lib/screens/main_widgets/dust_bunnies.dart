@@ -7,7 +7,7 @@ class DustBunnies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20.0),
+      padding: EdgeInsets.all(30.0),
       height: 180.0,
       child: StreamBuilder(
         stream: Firestore.instance.collection('users').snapshots(),
@@ -17,7 +17,7 @@ class DustBunnies extends StatelessWidget {
           }
           return ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemExtent: 100.0,
+            itemExtent: 115.0,
             itemCount: snapshot.data.documents.length,
             itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
           );

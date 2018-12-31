@@ -15,10 +15,10 @@ class Hybelkaninen extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.amber,
-        accentColor: Colors.amberAccent,
+        accentColor: Colors.amberAccent[700],
         
         textTheme: TextTheme(
-          title: TextStyle(fontSize: 24.0, fontStyle: FontStyle.normal),
+          title: TextStyle(fontSize: 24.0, ),
           headline: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
           body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
         ),

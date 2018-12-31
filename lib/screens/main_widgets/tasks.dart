@@ -15,8 +15,8 @@ class Tasks extends StatelessWidget {
           if(!snapshot.hasData) { 
             return CircularProgressIndicator();
           }
-          return ListView.builder(
-            itemExtent: 80.0,
+          return ListView.separated(
+            separatorBuilder: (context, index) => Divider(),
             itemCount: snapshot.data.documents.length,
             itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
           );
