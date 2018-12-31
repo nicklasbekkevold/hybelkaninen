@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 class AddTask extends StatefulWidget {
 
   @override
-  AddTaskState createState() => new AddTaskState();
+  AddTaskState createState() => AddTaskState();
 
 }
 
 class AddTaskState extends State<AddTask> {
 
-  final TextEditingController controller = new TextEditingController();
-  final GlobalKey<ScaffoldState> _scaffoldState = new GlobalKey<ScaffoldState>();
+  final TextEditingController controller = TextEditingController();
+  final GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
 
   void _showSnackbar (String value) {
     if(value.isEmpty) return;
-    _scaffoldState.currentState.showSnackBar(new SnackBar(
-      content: new Text(value),
+    _scaffoldState.currentState.showSnackBar(SnackBar(
+      content: Text(value),
     ),);
   }
   
@@ -23,13 +23,13 @@ class AddTaskState extends State<AddTask> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-      appBar: new AppBar(
-        leading: new IconButton(icon: Icon(Icons.clear), onPressed: () {Navigator.of(context).pushNamed("HomePageTodo"); },),
-        title: new Text("Add a new task"),
+      appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.clear), onPressed: () {Navigator.of(context).pop("AddTask"); },),
+        title: Text("Add a task"),
         centerTitle: true,
         backgroundColor: Colors.red,
       ),
-      body: new Container(
+      body: Container(
         child: Column(
           children: <Widget>[
           
@@ -91,10 +91,10 @@ class AddTaskState extends State<AddTask> {
           ],
         ),
       ),
-      floatingActionButton: new FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.red,
         child: Icon(Icons.done),
-        onPressed: () {Navigator.of(context).pushNamed("HomePageTodo"); },
+        onPressed: () {Navigator.of(context).pop("AddTask"); },
       ), 
     );
   }
