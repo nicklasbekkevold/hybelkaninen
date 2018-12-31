@@ -3,13 +3,56 @@ import 'package:flutter/material.dart';
 import './main_widgets/dust_bunnies.dart';
 import './main_widgets/tasks.dart';
 
-class HomePage extends StatelessWidget {
+
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+class _HomePageState extends State<HomePage> {
+
+  String selectedPopupRoute = "HomePage";
+  final List<String> popupRoutes = <String>[
+    "HomePage", "AddTaskk",
+  ];
+
+  _showDialog(BuildContext context) {
+    return () async {
+      String selected = await showMenu<String>(
+        context: context,
+        position: RelativeRect.fromLTRB(220.0, 80.0, 200.0, 100.0),
+        items: popupRoutes.map((String popupRoute) {
+          return PopupMenuItem<String>(
+              child: Text(popupRoute),
+              value: popupRoute,
+          );
+        }).toList(),
+      );
+      if (selected != null) {
+        setState(() {
+          selectedPopupRoute = selected;
+        });
+      }
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('KLÆBU', style: Theme.of(context).textTheme.title,),
+        title: GestureDetector(
+          onTap: _showDialog(context),
+          child: Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('KLÆBU', style: Theme.of(context).textTheme.title,),
+                Icon(Icons.arrow_drop_down)
+              ],
+            ),
+          )
+        ),
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
       ),

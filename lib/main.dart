@@ -25,7 +25,7 @@ class Hybelkaninen extends StatelessWidget {
       ),
       home: HomePage(),
       routes: <String, WidgetBuilder> {
-        "HomePageTodo": (BuildContext context) => HomePage(),
+        "HomePage": (BuildContext context) => HomePage(),
         "AddTask": (BuildContext context) => AddTask(),
       }
     );
