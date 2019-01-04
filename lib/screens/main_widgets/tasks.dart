@@ -7,20 +7,34 @@ class Tasks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20.0),
-      height: 180.0,
-      child: StreamBuilder(
-        stream: Firestore.instance.collection('tasks').snapshots(),
-        builder: (context, snapshot) {
-          if(!snapshot.hasData) { 
-            return CircularProgressIndicator();
-          }
-          return ListView.separated(
-            separatorBuilder: (context, index) => Divider(height: 1.0, color: Colors.grey,),
-            itemCount: snapshot.data.documents.length,
-            itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
-          );
-        }
+      padding: EdgeInsets.symmetric(vertical: 30.0),
+      height: 300.0,
+      child: Card(
+        margin: EdgeInsets.all(0.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start ,
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(15.0),
+              child: Text('TODOs: ', style: Theme.of(context).textTheme.body1,)
+            ),
+            Expanded(
+              child: StreamBuilder(
+                stream: Firestore.instance.collection('tasks').snapshots(),
+                builder: (context, snapshot) {
+                  if(!snapshot.hasData) { 
+                    return CircularProgressIndicator();
+                  }
+                  return ListView.separated(
+                    separatorBuilder: (context, index) => Divider(height: 1.0, color: Colors.grey,),
+                    itemCount: snapshot.data.documents.length,
+                    itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
+                  );
+                }
+              ),
+            ),
+          ]
+        ),
       ),
     );
   }

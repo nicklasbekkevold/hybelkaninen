@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './main_widgets/dust_bunnies.dart';
 import './main_widgets/tasks.dart';
+import './main_widgets/stateful_tasks.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     return () async {
       String selected = await showMenu<String>(
         context: context,
-        position: RelativeRect.fromLTRB(145.0, 90.0, 200.0, 0.0),
+        position: RelativeRect.fromLTRB(120.0, 90.0, 200.0, 0.0),
         items: popupRoutes.map((String popupRoute) {
           return PopupMenuItem<String>(
               child: Text(popupRoute),
@@ -57,9 +58,13 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: Container(
+          //padding: EdgeInsets.symmetric(vertical: 20.0),
           child: ListView(
             children: <Widget>[
                 DustBunnies(),
+                //Taskers(),
+                Tasks(),
+                Tasks(),
                 Tasks(),
             ]
           ),

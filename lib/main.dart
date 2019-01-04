@@ -20,7 +20,7 @@ class Hybelkaninen extends StatelessWidget {
         textTheme: TextTheme(
           title: TextStyle(fontSize: 24.0, ),
           headline: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-          body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+          body1: TextStyle(fontSize: 14.0, color: Colors.grey, fontWeight: FontWeight.bold),
         ),
       ),
       home: HomePage(),
