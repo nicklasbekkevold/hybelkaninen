@@ -14,14 +14,14 @@ class _HomePageState extends State<HomePage> {
 
   String selectedPopupRoute = "HomePage";
   final List<String> popupRoutes = <String>[
-    "HomePage", "AddTaskk",
+    "Edit Household", "Change Household", "Sign out",
   ];
 
   _showDialog(BuildContext context) {
     return () async {
       String selected = await showMenu<String>(
         context: context,
-        position: RelativeRect.fromLTRB(220.0, 80.0, 200.0, 100.0),
+        position: RelativeRect.fromLTRB(145.0, 90.0, 200.0, 0.0),
         items: popupRoutes.map((String popupRoute) {
           return PopupMenuItem<String>(
               child: Text(popupRoute),
@@ -54,7 +54,6 @@ class _HomePageState extends State<HomePage> {
           )
         ),
         centerTitle: true,
-        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Center(
         child: Container(
