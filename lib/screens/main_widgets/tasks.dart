@@ -8,23 +8,26 @@ class Tasks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 30.0),
-      height: 300.0,
+      height: 400.0,
       child: Card(
         margin: EdgeInsets.all(0.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start ,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Container(
               padding: EdgeInsets.all(15.0),
               child: Text('TODOs: ', style: Theme.of(context).textTheme.body1,)
             ),
+            Divider(),
             Expanded(
               child: StreamBuilder(
                 stream: Firestore.instance.collection('tasks').snapshots(),
                 builder: (context, snapshot) {
                   if(!snapshot.hasData) { 
                     return CircularProgressIndicator();
-                  }
+                  } 
                   return ListView.separated(
                     separatorBuilder: (context, index) => Divider(height: 1.0, color: Colors.grey,),
                     itemCount: snapshot.data.documents.length,
@@ -32,6 +35,12 @@ class Tasks extends StatelessWidget {
                   );
                 }
               ),
+            ),
+            Divider(),
+            FlatButton(
+              child: Text('SHOW MORE'),
+              textTheme: ButtonTextTheme.accent,
+              onPressed: () => print('Pressed'),
             ),
           ]
         ),

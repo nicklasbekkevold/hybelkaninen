@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     return () async {
       String selected = await showMenu<String>(
         context: context,
-        position: RelativeRect.fromLTRB(120.0, 90.0, 200.0, 0.0),
+        position: RelativeRect.fromLTRB(70.0, 90.0, 200.0, 0.0),
         items: popupRoutes.map((String popupRoute) {
           return PopupMenuItem<String>(
               child: Text(popupRoute),
