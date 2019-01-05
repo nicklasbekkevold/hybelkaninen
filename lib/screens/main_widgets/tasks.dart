@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../widgets/task_tile.dart';
+import 'stateful_tasks.dart';
 
 class Tasks extends StatelessWidget {
 
@@ -21,7 +22,8 @@ class Tasks extends StatelessWidget {
               child: Text('TODOs: ', style: Theme.of(context).textTheme.body1,)
             ),
             Divider(height: 0.0,),
-            Expanded(
+            Taskers(),
+            /* Expanded(
               child: StreamBuilder(
                 stream: Firestore.instance.collection('tasks').snapshots(),
                 builder: (context, snapshot) {
@@ -37,7 +39,7 @@ class Tasks extends StatelessWidget {
                   );
                 }
               ),
-            ),
+            ), */
             Divider(height: 0.0,),
             Center(
               child: FlatButton(

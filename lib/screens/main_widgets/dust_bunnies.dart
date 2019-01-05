@@ -12,12 +12,13 @@ class DustBunnies extends StatelessWidget {
       child: Card(
         margin: EdgeInsets.all(0.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start ,
+          crossAxisAlignment: CrossAxisAlignment.stretch ,
           children: <Widget>[
             Container(
               padding: EdgeInsets.all(15.0),
               child: Text('Dust bunnies: ', style: Theme.of(context).textTheme.body1,)
             ),
+            Divider(),
             Expanded(
               child: StreamBuilder(
                 stream: Firestore.instance.collection('users').orderBy('points').snapshots(),
@@ -27,7 +28,7 @@ class DustBunnies extends StatelessWidget {
                   }
                   return ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemExtent: 115.0,
+                    itemExtent: 135.0,
                     itemCount: snapshot.data.documents.length,
                     itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
                   );

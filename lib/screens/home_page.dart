@@ -64,8 +64,8 @@ class _HomePageState extends State<HomePage> {
                 DustBunnies(),
                 //Taskers(),
                 Tasks(),
-                Tasks(),
-                Tasks(),
+                //Tasks(),
+                //Tasks(),
             ]
           ),
         ),
