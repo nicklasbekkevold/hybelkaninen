@@ -28,18 +28,21 @@ class _HomePageState extends State<HomePage> {
               child: ListTile(
                 leading: Icon(Icons.edit),
                 title: Text('Edit household'),
+              onTap: () => print("Pressed: Edit household"),
               ),
             ),
             SimpleDialogOption(
               child: ListTile(
                 leading: Icon(Icons.swap_horiz),
-                title: Text('Change household'),
+                title: Text('Change household'),              
+              onTap: () => print("Pressed: Change household"),              
               ),
             ),
             SimpleDialogOption(
               child: ListTile(
                 leading: Icon(Icons.exit_to_app),
                 title: Text('Sign out'),
+              onTap: () => print("Pressed: Sign out"),
               ),
             ),
           ],

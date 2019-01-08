@@ -46,10 +46,10 @@ class _TasksState extends State<Taskers> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Expanded(
       child: StreamBuilder(
-        stream: Firestore.instance.collection('tasks').where('repeats', isEqualTo: true).snapshots(),
+        stream: Firestore.instance.collection('tasks').where('repeats', isEqualTo: true).limit(2).snapshots(),
         builder: (context, snapshot) {
           if(!snapshot.hasData) { 
-            return CircularProgressIndicator();
+            return LinearProgressIndicator();
           } 
           return ListView.separated(
             physics: NeverScrollableScrollPhysics(),

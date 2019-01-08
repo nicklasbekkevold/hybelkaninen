@@ -24,11 +24,11 @@ class DustBunnies extends StatelessWidget {
                 stream: Firestore.instance.collection('users').orderBy('points').snapshots(),
                 builder: (context, snapshot) {
                   if(!snapshot.hasData) { 
-                    return CircularProgressIndicator();
+                    return LinearProgressIndicator();
                   }
                   return ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemExtent: 135.0,
+                    itemExtent: 115.0,
                     itemCount: snapshot.data.documents.length,
                     itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
                   );
