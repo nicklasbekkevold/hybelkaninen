@@ -20,15 +20,30 @@ class _HomePageState extends State<HomePage> {
 
   _showDialog(BuildContext context) {
     return () async {
-      String selected = await showMenu<String>(
+      String selected = await showDialog<String>(
         context: context,
-        position: RelativeRect.fromLTRB(70.0, 90.0, 200.0, 0.0),
-        items: popupRoutes.map((String popupRoute) {
-          return PopupMenuItem<String>(
-              child: Text(popupRoute),
-              value: popupRoute,
-          );
-        }).toList(),
+        child: SimpleDialog(
+          children: <Widget>[
+            SimpleDialogOption(
+              child: ListTile(
+                leading: Icon(Icons.edit),
+                title: Text('Edit household'),
+              ),
+            ),
+            SimpleDialogOption(
+              child: ListTile(
+                leading: Icon(Icons.swap_horiz),
+                title: Text('Change household'),
+              ),
+            ),
+            SimpleDialogOption(
+              child: ListTile(
+                leading: Icon(Icons.exit_to_app),
+                title: Text('Sign out'),
+              ),
+            ),
+          ],
+        ),
       );
       if (selected != null) {
         setState(() {
@@ -58,14 +73,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: Container(
-          //padding: EdgeInsets.symmetric(vertical: 20.0),
           child: ListView(
             children: <Widget>[
                 DustBunnies(),
-                //Taskers(),
                 Tasks(),
-                //Tasks(),
-                //Tasks(),
             ]
           ),
         ),
