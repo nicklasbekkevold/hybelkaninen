@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../widgets/person_tile.dart';
+import '../components/person_tile.dart';
 
 class DustBunnies extends StatelessWidget {
 

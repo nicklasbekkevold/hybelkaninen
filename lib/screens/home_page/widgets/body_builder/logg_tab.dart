@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../widgets/logg_card.dart';
+import '../components/logg_card.dart';
 
 class LoggTab extends StatelessWidget {
 

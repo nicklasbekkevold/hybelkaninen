@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './screens/home_page.dart';
-import './screens/add_task.dart';
+import './screens/home_page/home_page.dart';
+import './screens/add_task/add_task.dart';
 
 void main() => runApp(Hybelkaninen());
 

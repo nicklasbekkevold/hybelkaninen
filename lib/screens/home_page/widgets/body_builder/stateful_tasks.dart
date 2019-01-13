@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../widgets/task_tile.dart';
+import '../components/task_tile.dart';
 
 class Taskers extends StatefulWidget {
 
