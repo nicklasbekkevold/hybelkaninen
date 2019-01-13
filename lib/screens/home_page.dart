@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
+import './main_widgets/home_info_list.dart';
 import './main_widgets/dust_bunnies.dart';
 import './main_widgets/tasks.dart';
 import './main_widgets/stateful_tasks.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../widgets/person_tile.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -74,21 +75,21 @@ class _HomePageState extends State<HomePage> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Container(
-          child: ListView(
-            children: <Widget>[
-                DustBunnies(),
-                Tasks(),
-            ]
-          ),
-        ),
-      ),
+      body: ListView.builder(
+        itemCount: 2,
+        itemBuilder: (context, index) {
+          return homeInfoList(context, index);
+        },
+      ), 
       floatingActionButton: FloatingActionButton( 
         child: Icon(Icons.add),
         onPressed: () {Navigator.of(context).pushNamed("AddTask"); },
-      ),
+      ), 
     );
+  }
+
+  Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
+    return PersonTile(context, document['name'], document['points']);
   }
 
 }

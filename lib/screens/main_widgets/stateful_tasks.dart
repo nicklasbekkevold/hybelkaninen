@@ -44,22 +44,20 @@ class _TasksState extends State<Taskers> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: StreamBuilder(
-        stream: Firestore.instance.collection('tasks').where('repeats', isEqualTo: true).limit(2).snapshots(),
-        builder: (context, snapshot) {
-          if(!snapshot.hasData) { 
-            return LinearProgressIndicator();
-          } 
-          return ListView.separated(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            separatorBuilder: (context, index) => Divider(height: 1.0, color: Colors.grey,),
-            itemCount: snapshot.data.documents.length,
-            itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
-          );
-        }
-      ),
+    return StreamBuilder(
+      stream: Firestore.instance.collection('tasks').where('repeats', isEqualTo: true).limit(3).snapshots(),
+      builder: (context, snapshot) {
+        if(!snapshot.hasData) { 
+          return LinearProgressIndicator();
+        } 
+        return ListView.separated(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          separatorBuilder: (context, index) => Divider(height: 1.0, color: Colors.grey,),
+          itemCount: snapshot.data.documents.length,
+          itemBuilder: (context, index) => _buildListItem(context, snapshot.data.documents[index]),
+        );
+      }
     );
   }
 

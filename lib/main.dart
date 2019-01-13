@@ -16,6 +16,7 @@ class Hybelkaninen extends StatelessWidget {
         brightness: Brightness.light,
         primaryColor: Colors.amber,
         accentColor: Colors.amberAccent[700],
+        scaffoldBackgroundColor: Colors.grey[300],
         
         textTheme: TextTheme(
           title: TextStyle(fontSize: 24.0, ),

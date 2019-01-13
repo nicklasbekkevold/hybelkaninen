@@ -12,7 +12,9 @@ class DustBunnies extends StatelessWidget {
       child: Card(
         margin: EdgeInsets.all(0.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch ,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Container(
               padding: EdgeInsets.all(15.0),

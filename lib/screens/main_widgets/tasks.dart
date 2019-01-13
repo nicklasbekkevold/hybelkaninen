@@ -9,7 +9,7 @@ class Tasks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 30.0),
-      height: 380.0,
+      //height: 380.0,
       child: Card(
         margin: EdgeInsets.all(0.0),
         child: Column(
