@@ -41,7 +41,13 @@ class Tasks extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("TODOs"),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text("TODOs"),
+              Icon(Icons.add_circle_outline, color: Colors.grey, size: 30.0,)
+            ],
+          ),
         ),
         Card(
           shape: RoundedRectangleBorder(),
