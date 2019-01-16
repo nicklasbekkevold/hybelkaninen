@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widgets/body_builder/home_info_list.dart';
+import 'widgets/body_builder/dust_bunnies.dart';
+import 'widgets/body_builder/tasks.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -73,7 +74,10 @@ class _HomePageState extends State<HomePage> {
       body: ListView.builder(
         itemCount: 2,
         itemBuilder: (context, index) {
-          return homeInfoList(context, index);
+          return Padding(
+            padding: EdgeInsets.symmetric(vertical: 30.0),
+            child: [DustBunnies(), Tasks()][index],
+          );
         },
       ), 
       floatingActionButton: FloatingActionButton( 
