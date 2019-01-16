@@ -9,7 +9,10 @@ class DustBunnies extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        Text("Dust bunnies"),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Dust bunnies"),
+        ),
         Card(
           shape: RoundedRectangleBorder(),
           margin: EdgeInsets.all(0.0),

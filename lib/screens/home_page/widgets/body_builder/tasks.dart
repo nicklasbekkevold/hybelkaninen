@@ -39,7 +39,10 @@ class Tasks extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        Text("TODOs"),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("TODOs"),
+        ),
         Card(
           shape: RoundedRectangleBorder(),
           margin: EdgeInsets.all(0.0),
