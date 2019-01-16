@@ -2,22 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../components/task_tile.dart';
 
-class Tasks extends StatefulWidget {
+class Tasks extends StatelessWidget {
 
   static Text header = Text("TODOs");
-
-  @override
-  _TasksState createState() => _TasksState();
-
-}
-
-class _TasksState extends State<Tasks> with TickerProviderStateMixin {
-
-  void _dismissCard(String task) {
-    setState(() {
-      Firestore.instance.collection('tasks').document(task).updateData({'repeats': false});
-    });
-  }
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
     return Card(
@@ -27,7 +14,7 @@ class _TasksState extends State<Tasks> with TickerProviderStateMixin {
         child: Dismissible(
           key: Key(document.documentID),
           onDismissed: (direction) {
-            _dismissCard(document.documentID);
+            Firestore.instance.collection('tasks').document(document.documentID).updateData({'repeats': false});
             Scaffold
                 .of(context)
                 .showSnackBar(SnackBar(content: Text("${document['title']} completed")));

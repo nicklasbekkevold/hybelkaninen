@@ -3,9 +3,9 @@ import 'dust_bunnies.dart';
 import 'tasks.dart';
 
 final Map<String, List<Widget>> content = {
-  "headers": [DustBunnies.header, Tasks.header],
-  "lists": [DustBunnies(), Tasks()],
-  "footers": [
+  'headers': [DustBunnies.header, Tasks.header],
+  'lists': [DustBunnies(), Tasks()],
+  'footers': [
     Text(""), 
     Center(
       child: FlatButton(
