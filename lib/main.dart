@@ -11,15 +11,16 @@ class Hybelkaninen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Hybelkaninen',
-      color: Colors.grey,
+      color: Colors.amber,
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.amber,
         accentColor: Colors.amberAccent[700],
+        backgroundColor: Colors.white,
         scaffoldBackgroundColor: Colors.grey[300],
         
         textTheme: TextTheme(
-          title: TextStyle(fontSize: 24.0, ),
+          title: TextStyle(fontSize: 22.0, ),
           headline: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
           body1: TextStyle(fontSize: 14.0, color: Colors.grey, fontWeight: FontWeight.bold),
           body2: TextStyle(fontSize: 14.0, color: Colors.black, fontWeight: FontWeight.bold),
