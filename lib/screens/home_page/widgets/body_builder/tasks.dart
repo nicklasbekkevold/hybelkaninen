@@ -15,9 +15,14 @@ class Tasks extends StatelessWidget {
           key: Key(document.documentID),
           onDismissed: (direction) {
             Firestore.instance.collection('tasks').document(document.documentID).updateData({'repeats': false});
-            Scaffold
-                .of(context)
-                .showSnackBar(SnackBar(content: Text("${document['title']} completed")));
+            Scaffold.of(context).showSnackBar(SnackBar(
+              content: Text("${document['title']} completed"),
+              action: SnackBarAction(
+                label: 'UNDO',
+                onPressed: () => Firestore.instance.collection('tasks').document(document.documentID).updateData({'repeats': true}),
+              ),
+              )
+            );
           },
           child: TaskTile(context, document['points'], document['title']),
           background: Container(
