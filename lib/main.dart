@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './screens/home_page/home_page.dart';
+import 'screens/auth/login_page.dart';
 import './screens/add_task/add_task.dart';
 
 void main() => runApp(Hybelkaninen());
@@ -27,7 +28,7 @@ class Hybelkaninen extends StatelessWidget {
           button: TextStyle(fontSize: 14.0, color: Theme.of(context).accentColor),
         ),
       ),
-      home: HomePage(),
+      home: LoginPage(),
       routes: <String, WidgetBuilder> {
         "HomePage": (BuildContext context) => HomePage(),
         "AddTask": (BuildContext context) => AddTask(),
