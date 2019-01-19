@@ -1,4 +1,4 @@
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:google_sign_in/google_sign_in.dart';
 import '../home_page/home_page.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
               obscureText: true,
             ),
             RaisedButton(
-              onPressed: () {}, //signIn,
+              onPressed: signIn,
               child: Text('Sign in'),
             ),
           ],
@@ -58,8 +58,8 @@ class _LoginPageState extends State<LoginPage> {
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
       try{
-        // FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+        FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(user: user,)));
       } catch(e) {
         print(e.message);
       }

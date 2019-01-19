@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'widgets/body_builder/dust_bunnies.dart';
 import 'widgets/body_builder/tasks.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+
+  final FirebaseUser user;
+
+  HomePage({
+    Key key, 
+    @required this.user
+    }) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
+
 }
 class _HomePageState extends State<HomePage> {
 
@@ -63,7 +71,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('KLÆBU', style: Theme.of(context).textTheme.title,),
+                Text('${widget.user.email}', style: Theme.of(context).textTheme.title,),
                 Icon(Icons.arrow_drop_down)
               ],
             ),
