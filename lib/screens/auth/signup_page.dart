@@ -1,14 +1,18 @@
-import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:google_sign_in/google_sign_in.dart';
-import '../home_page/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginPage extends StatefulWidget {
+import 'signin_page.dart';
+
+
+
+class SignUpPage extends StatefulWidget {
+
   @override
-  _LoginPageState createState() => new _LoginPageState();
+  _SignUpPageState createState() => _SignUpPageState();
+
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _email, _password;
@@ -45,8 +49,8 @@ class _LoginPageState extends State<LoginPage> {
               obscureText: true,
             ),
             RaisedButton(
-              onPressed: signIn,
-              child: Text('Sign in'),
+              onPressed: signUp,
+              child: Text('Sign Up'),
             ),
           ],
         )
@@ -54,12 +58,15 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void signIn() async {
+  void signUp() async {
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
       try{
-        FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(user: user,)));
+        FirebaseUser user = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
+        user.sendEmailVerification();
+        // Display for user that we sent an email.
+        Navigator.of(context).pop();
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInPage()));
       } catch(e) {
         print(e.message);
       }
