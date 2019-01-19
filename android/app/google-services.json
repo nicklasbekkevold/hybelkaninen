@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "913034996850-brsrm0nvpf8r3ab1pqh5iee2e0ed34od.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "no.nicklasbekkevold.hybelkaninen",
+            "certificate_hash": "ab378b80a8a4aafabac7db7ae169f25796e65994"
+          }
+        },
+        {
           "client_id": "913034996850-mh3uul7ttabd4a04nb4h9f0t797b2ii7.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913034996850-mh3uul7ttabd4a04nb4h9f0t797b2ii7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
