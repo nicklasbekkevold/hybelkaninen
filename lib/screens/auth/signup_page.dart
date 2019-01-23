@@ -20,7 +20,9 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(),
+      appBar: AppBar(
+        title: Text('Sign up'),
+      ),
       body: Form(
         key: _formKey,
         child: Column(
@@ -66,7 +68,7 @@ class _SignUpPageState extends State<SignUpPage> {
         user.sendEmailVerification();
         // Display for user that we sent an email.
         Navigator.of(context).pop();
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInPage()));
+        //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInPage(), fullscreenDialog: true));
       } catch(e) {
         print(e.message);
       }

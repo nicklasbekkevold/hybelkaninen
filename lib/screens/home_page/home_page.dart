@@ -5,11 +5,11 @@ import 'widgets/body_builder/tasks.dart';
 
 class HomePage extends StatefulWidget {
 
-  final FirebaseUser user;
+  final String userId;
 
   HomePage({
     Key key, 
-    @required this.user
+    @required this.userId
     }) : super(key: key);
 
   @override
@@ -47,7 +47,10 @@ class _HomePageState extends State<HomePage> {
               child: ListTile(
                 leading: Icon(Icons.exit_to_app),
                 title: Text('Sign out'),
-              onTap: () => print("Pressed: Sign out"),
+              onTap: () {
+                FirebaseAuth.instance.signOut();
+                Navigator.of(context).pop();
+              },
               ),
             ),
           ],
@@ -71,7 +74,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('${widget.user.email}', style: Theme.of(context).textTheme.title,),
+                Text('KLÆBU', style: Theme.of(context).textTheme.title,),
                 Icon(Icons.arrow_drop_down)
               ],
             ),

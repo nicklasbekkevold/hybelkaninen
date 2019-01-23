@@ -15,8 +15,10 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign in'),
+      ),
       body: Form(
         key: _formKey,
         child: Column(
@@ -59,7 +61,7 @@ class _SignInPageState extends State<SignInPage> {
       _formKey.currentState.save();
       try{
         FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(user: user,)));
+        Navigator.of(context).pop();
       } catch(e) {
         print(e.message);
       }

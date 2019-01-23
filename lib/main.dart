@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'screens/auth/welcome_page.dart';
+import 'screens/auth/splash_page.dart';
 import 'screens/home_page/home_page.dart';
 import 'screens/add_task/add_task.dart';
 
@@ -28,11 +30,28 @@ class Hybelkaninen extends StatelessWidget {
           button: TextStyle(fontSize: 14.0, color: Theme.of(context).accentColor),
         ),
       ),
-      home: WelcomPage(),
+      home: _handleCurrentScreen(),
       routes: <String, WidgetBuilder> {
         "HomePage": (BuildContext context) => HomePage(),
         "AddTask": (BuildContext context) => AddTask(),
       }
     );
   }
+
+  Widget _handleCurrentScreen() {
+    return StreamBuilder<FirebaseUser>(
+      stream: FirebaseAuth.instance.onAuthStateChanged,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return SplashPage();
+        } else {
+          if (snapshot.hasData) {
+            return HomePage(userId: snapshot.data.uid);
+          }
+          return WelcomPage();
+        }
+      }
+    );
+  }
+
 }

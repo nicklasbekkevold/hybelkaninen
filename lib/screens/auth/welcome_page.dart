@@ -13,18 +13,18 @@ class _WelcomPageState extends State<WelcomPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My app'),
+        title: Text('Hybelkaninen'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           RaisedButton(
-            onPressed: NavigareToSignIn,
+            onPressed: navigareToSignIn,
             child: Text('Sign in'),
           ), 
           RaisedButton(
-            onPressed: NavigareToSignUp,
+            onPressed: navigareToSignUp,
             child: Text('Sign up'),
           ),
         ],
@@ -32,10 +32,10 @@ class _WelcomPageState extends State<WelcomPage> {
     );
   }
 
-  void NavigareToSignIn() {
+  void navigareToSignIn() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage(), fullscreenDialog: true));
   }
-  void NavigareToSignUp() {
+  void navigareToSignUp() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage(), fullscreenDialog: true));
   }
 }
