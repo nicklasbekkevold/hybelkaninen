@@ -4,8 +4,15 @@ import '../components/task_tile.dart';
 
 class Tasks extends StatelessWidget {
 
+  final String userId;
+
+  Tasks({
+    Key key, 
+    @required this.userId
+  }) : super(key: key);
+
   Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
-    return Container(     
+    return Container (     
       child: Dismissible(
         key: Key(document.documentID),
         onDismissed: (direction) {

@@ -87,13 +87,13 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.symmetric(vertical: 30.0),
-            child: [DustBunnies(), Tasks()][index],
+            child: [DustBunnies(userId: widget.userId), Tasks(userId: widget.userId)][index],
           );
         },
       ), 
       floatingActionButton: FloatingActionButton( 
         child: Icon(Icons.add),
-        onPressed: () {Navigator.of(context).pushNamed("AddTask"); },
+        onPressed: () {Navigator.of(context).pushNamed('AddTask'); },
       ), 
     );
   }
