@@ -19,13 +19,25 @@ class _WelcomPageState extends State<WelcomPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          RaisedButton(
-            onPressed: navigareToSignIn,
-            child: Text('Sign in'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: RaisedButton(
+                color: Theme.of(context).accentColor,
+                onPressed: navigareToSignIn,
+                child: Text('Sign in'),
+              ),
+            ),
           ), 
-          RaisedButton(
-            onPressed: navigareToSignUp,
-            child: Text('Sign up'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: RaisedButton(
+                color: Theme.of(context).accentColor,
+                onPressed: navigareToSignUp,
+                child: Text('Sign up'),
+              ),
+            ),
           ),
         ],
       ),

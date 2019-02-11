@@ -4,11 +4,11 @@ import '../components/person_tile.dart';
 
 class DustBunnies extends StatelessWidget {
 
-  final String userId;
+  final String userID;
 
   DustBunnies({
     Key key, 
-    @required this.userId
+    @required this.userID
   }) : super(key: key);
 
   @override

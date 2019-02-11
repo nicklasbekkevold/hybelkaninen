@@ -4,11 +4,11 @@ import '../components/task_tile.dart';
 
 class Tasks extends StatelessWidget {
 
-  final String userId;
+  final String userID;
 
   Tasks({
     Key key, 
-    @required this.userId
+    @required this.userID
   }) : super(key: key);
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot document) {

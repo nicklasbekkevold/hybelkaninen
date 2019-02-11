@@ -46,7 +46,7 @@ class Hybelkaninen extends StatelessWidget {
           return SplashPage();
         } else {
           if (snapshot.hasData) {
-            return HomePage(userId: snapshot.data.uid);
+            return HomePage(userID: snapshot.data.uid);
           }
           return WelcomPage();
         }

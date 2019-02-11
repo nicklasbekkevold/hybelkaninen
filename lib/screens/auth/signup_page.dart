@@ -24,59 +24,66 @@ class _SignUpPageState extends State<SignUpPage> {
       resizeToAvoidBottomPadding: false,
       body: Form(
         key: _formKey,
-        child: Column(
-          children: <Widget>[
-            TextFormField(
-              validator: (input) {
-                if (input.isEmpty) {
-                  return 'Enter name';
-                } else if (input.length < 3) {
-                  return 'Name must be more than 2 charater';
-                }
-              },
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                labelText: 'Name'
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: <Widget>[
+              TextFormField(
+                validator: (input) {
+                  if (input.isEmpty) {
+                    return 'Enter name';
+                  } else if (input.length < 3) {
+                    return 'Name must be more than 2 charater';
+                  }
+                },
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: 'Name'
+                ),
+                onSaved: (input) => _name = input,
               ),
-              onSaved: (input) => _name = input,
-            ),
-            TextFormField(
-              validator: (input) {
-                Pattern pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'; // Assume this is right 
-                RegExp regex = RegExp(pattern);
-                if (input.isEmpty){
-                  return 'Enter email address';
-                } else if (!regex.hasMatch(input)) {
-                  return 'Enter valid email address';
-                }
-              },
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                labelText: 'Email'
+              TextFormField(
+                validator: (input) {
+                  Pattern pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'; // Assume this is right 
+                  RegExp regex = RegExp(pattern);
+                  if (input.isEmpty){
+                    return 'Enter email address';
+                  } else if (!regex.hasMatch(input)) {
+                    return 'Enter valid email address';
+                  }
+                },
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: 'Email'
+                ),
+                onSaved: (input) => _email = input,
               ),
-              onSaved: (input) => _email = input,
-            ),
-            TextFormField(
-              validator: (input) {
-                if (input.length < 8) {
-                  return 'Use 8 characters or more for your password';
-                }
-              },
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                labelText: 'Password'
+              TextFormField(
+                validator: (input) {
+                  if (input.length < 8) {
+                    return 'Use 8 characters or more for your password';
+                  }
+                },
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: 'Password'
+                ),
+                onSaved: (input) => _password = input,
+                obscureText: true,
               ),
-              onSaved: (input) => _password = input,
-              obscureText: true,
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            RaisedButton(
-              onPressed: signUp,
-              child: Text('Sign Up'),
-            ),
-          ],
+              SizedBox(
+                height: 10.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: RaisedButton(
+                  color: Theme.of(context).accentColor,
+                  onPressed: signUp,
+                  child: Text('Sign Up'),
+                ),
+              ),
+            ],
+          ),
         )
       ),
     );

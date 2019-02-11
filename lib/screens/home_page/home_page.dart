@@ -5,11 +5,11 @@ import 'widgets/body_builder/tasks.dart';
 
 class HomePage extends StatefulWidget {
 
-  final String userId;
+  final String userID;
 
   HomePage({
     Key key, 
-    @required this.userId
+    @required this.userID
     }) : super(key: key);
 
   @override
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.symmetric(vertical: 30.0),
-            child: [DustBunnies(userId: widget.userId), Tasks(userId: widget.userId)][index],
+            child: [DustBunnies(userID: widget.userID), Tasks(userID: widget.userID)][index],
           );
         },
       ), 
