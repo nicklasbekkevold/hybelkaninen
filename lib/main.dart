@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'screens/auth/welcome_page.dart';
 import 'screens/auth/splash_page.dart';
 import 'screens/home_page/home_page.dart';
+import 'screens/households/household_page.dart';
 import 'screens/add_task/add_task.dart';
 
 void main() => runApp(Hybelkaninen());
@@ -48,7 +49,7 @@ class Hybelkaninen extends StatelessWidget {
           if (snapshot.hasData) {
             return HomePage(userID: snapshot.data.uid);
           }
-          return WelcomPage();
+          return HouseholdPage();
         }
       }
     );

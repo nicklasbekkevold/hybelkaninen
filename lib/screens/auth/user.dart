@@ -16,7 +16,7 @@ class User {
       'userID': userID,
       'name': name,
       'email': email == null ? '' : email,
-      //'appIdentifier': 'flutter-onboarding'
+      'households': {},
     };
   }
 
