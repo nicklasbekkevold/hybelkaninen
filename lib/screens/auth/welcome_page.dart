@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'signin_page.dart';
 import 'signup_page.dart';
 
-class WelcomPage extends StatefulWidget {
+class WelcomePage extends StatefulWidget {
+    
+  WelcomePage({
+    Key key, 
+  }) : super(key: key);
+  
   @override
-  _WelcomPageState createState() => _WelcomPageState();
+  _WelcomePageState createState() => _WelcomePageState();
 }
 
-class _WelcomPageState extends State<WelcomPage> {
+class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {

@@ -47,9 +47,9 @@ class Hybelkaninen extends StatelessWidget {
           return SplashPage();
         } else {
           if (snapshot.hasData) {
-            return HomePage(userID: snapshot.data.uid);
+            return HouseholdPage(user: snapshot.data);
           }
-          return HouseholdPage();
+          return WelcomePage();
         }
       }
     );
